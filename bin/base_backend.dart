@@ -1,5 +1,10 @@
-import 'package:base_backend/base_backend.dart' as base_backend;
+import 'package:shelf/shelf_io.dart';
+import 'package:shelf/shelf.dart';
 
 void main(List<String> arguments) {
-  print('Hello world: ${base_backend.calculate()}!');
+  serve(
+      (Request req) => Response(200,
+          body: 'Olá Mundo', headers: {'content-type': 'application/json'}),
+      'localhost',
+      8080);
 }
